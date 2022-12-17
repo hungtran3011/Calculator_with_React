@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+.main-app {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+  margin: 0 auto;
+  border-radius: 1em;
+  border: 2px solid black;
+  background: #BBE4E9;
+  max-width: 270px;
+}
+
+.calculation-area {
+  background: white;
+  border-radius: 20px;
+  text-align: right;
+  width: 100%;
+  padding: 3px;
+  border: 2px solid black;
+}
+.calculation-area__input {
+  font-size: 3em;
+  overflow-x: auto;
+}
+.calculation-area__output {
+  font-size: 3em;
+}
+
+.btn {
+  font-family: "Indie Flower", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  width: 3em;
+  height: 3em;
+  border-radius: 4em;
+  cursor: pointer;
+}
+.btn__area {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+}
+.btn__area--row {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5em;
+}
+.btn__action {
+  background: #53A8B6;
+  color: #ffffff;
+}
+.btn__action:hover {
+  background: #3d7d87;
+}
+.btn__number {
+  background: #5585B5;
+  color: #ffffff;
+}
+.btn__number:hover {
+  background: #416c96;
+}
+.btn__operator {
+  background: #79C2D0;
+}
+.btn__operator:hover {
+  background: #99c2c7;
+}
+
+/*# sourceMappingURL=App.css.map */
