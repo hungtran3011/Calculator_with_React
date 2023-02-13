@@ -3,6 +3,15 @@ import {useState} from "react";
 import {evaluate} from "mathjs"
 import "./App.css"
 
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        document.title = "Simple calculator with React";
+    } else {
+        console.log("tab is inactive")
+        document.title = "Come back to me!";
+    }
+});
+
 function InputButton(props) {
     return (
         <button onClick={props.onClick} className={`btn btn__${props.inputType}`}>
@@ -27,21 +36,30 @@ function CalculationArea({input, output, isCalculated}) {
 export default function MainApp() {
     const [input, setInput] = useState("0");
     const [output, setOutput] = useState("0");
-
     const [isStart, setIsStart] = useState(true);
     const [isCalculated, setIsCalculated] = useState(false);
 
     function insertInputText(text){
-        setIsCalculated(false);
         if (isStart){
-            clearInput();
-            setInput(text);
-            setIsStart(false);
+            if (["+", "-", "*", "/"].includes(text) && isCalculated) {
+                console.log(output)
+                setInput(output + text);
+                setIsStart(false);
+                setIsCalculated(false);
+
+            }
+            else {
+                clearInput();
+                setInput(text);
+                setIsStart(false);
+                setIsCalculated(false);
+            }
             try {
                 setOutput(evaluate(text));
+
             }
             catch (e) {
-                
+
             }
         }
         else{
@@ -58,12 +76,12 @@ export default function MainApp() {
     function getResult(){
         try {
             setOutput(evaluate(input));
+            setIsCalculated(true);
+            setIsStart(true);
         }
         catch (e) {
             
         }
-        setIsCalculated(true);
-        setIsStart(true);
     }
 
     function clearInput(){
@@ -74,6 +92,10 @@ export default function MainApp() {
     }
 
     function deleteInput(){
+        if (isCalculated){
+            clearInput();
+            return;
+        }
         if (input.length === 1){
             clearInput();
             return;
@@ -91,7 +113,7 @@ export default function MainApp() {
 
     return (
         <div className={"main-app"}>
-            <CalculationArea input={input} output={output} isCalculated={isCalculated}/>
+            <CalculationArea input={input} output={output} isCalculated={isCalculated} />
             <div className="btn__area">
                 <div className="btn__area--row">
                     <InputButton
@@ -204,7 +226,6 @@ export default function MainApp() {
                     />
                 </div>
             </div>
-
         </div>
     )
 }
