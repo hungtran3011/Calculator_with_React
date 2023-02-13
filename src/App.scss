@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+$background-color: #BBE4E9;
+$operator-color: #79C2D0;
+$number-color: #5585B5;
+$action-color: #53A8B6;
+$font-color-light-bg: #000000;
+$disabled-color-light-bg: #d3d3d3;
+$font-color-dark-bg: #ffffff;
+$disabled-color-dark-bg: #d3d3d3;
+
 .main-app{
     display: flex;
     flex-flow: column nowrap;
@@ -13,7 +22,7 @@
     //box-shadow: 0 0 50px #d3d3d3;
     border-radius: 1em;
     border: 2px solid black;
-    background: #BBE4E9;
+    background: $background-color;
     max-width: 270px;
 }
 
@@ -23,16 +32,43 @@
     text-align: right;
     width: 100%;
     padding: 3px;
-    //box-shadow: inset 0 0 7px #d3d3d3;
     border: 2px solid black;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: flex-start;
+    transition: font-size ease-in-out 10s;
 
     &__input{
-        font-size: 3em;
+        padding: 0;
         overflow-x: auto;
     }
 
     &__output{
-        font-size: 3em;
+        padding: 0;
+        overflow-x: auto;
+    }
+}
+
+.calculated{
+    &__true{
+        &--input{
+            color: $disabled-color-light-bg;
+            font-size: 2em;
+        }
+        &--output{
+            color: $font-color-light-bg;
+            font-size: 4em;
+        }
+    }
+    &__false{
+        &--input{
+            color: $font-color-light-bg-light-bg;
+            font-size: 4em;
+        }
+        &--output{
+            color: $disabled-color-light-bg;
+            font-size: 2em;
+        }
     }
 }
 
@@ -45,9 +81,7 @@
     height: 3em;
     border-radius: 4em;
     cursor: pointer;
-    &__input{
 
-    }
     &__area{
         display: flex;
         flex-flow: column nowrap;
@@ -60,7 +94,7 @@
     }
 
     &__action{
-        background: #53A8B6;
+        background: $action-color;
         color: #ffffff;
 
         &:hover{
@@ -69,7 +103,7 @@
     }
 
     &__number{
-        background: #5585B5;
+        background: $number-color;
         color: #ffffff;
 
         &:hover{
@@ -78,7 +112,7 @@
     }
 
     &__operator{
-        background: #79C2D0;
+        background: $operator-color;
 
         &:hover{
             background: #99c2c7;
