@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 $background-color: #BBE4E9;
 $operator-color: #79C2D0;
@@ -9,30 +9,16 @@ $disabled-color-light-bg: #d3d3d3;
 $font-color-dark-bg: #ffffff;
 $disabled-color-dark-bg: #d3d3d3;
 
-@mixin unfocused{
-  color: $disabled-color-light-bg;
-  font-size: 1em;
-}
-
-@mixin focused{
-  color: $font-color-light-bg;
-  font-size: 2em;
-}
-
-*{
-    font-family: "Satisfy", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
 .main-app{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     align-content: center;
     justify-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1em;
     padding: 1em;
-    margin: auto;
+    margin: 0 auto;
     //box-shadow: 0 0 50px #d3d3d3;
     border-radius: 1em;
     border: 2px solid black;
@@ -50,39 +36,46 @@ $disabled-color-dark-bg: #d3d3d3;
     display: flex;
     flex-flow: column nowrap;
     justify-items: flex-start;
-    transition: font-size .1s ease-out;
+    transition: font-size ease-in-out 10s;
 
     &__input{
         padding: 0;
         overflow-x: auto;
-        transition: font-size .1s ease-out;
     }
 
     &__output{
-        @extend .calculation-area__input;
+        padding: 0;
+        overflow-x: auto;
     }
 }
 
 .calculated{
     &__true{
         &--input{
-            @include unfocused;
+            color: $disabled-color-light-bg;
+            font-size: 2em;
         }
         &--output{
-            @include focused;
+            color: $font-color-light-bg;
+            font-size: 4em;
         }
     }
     &__false{
         &--input{
-            @include focused;
+            color: $font-color-light-bg-light-bg;
+            font-size: 4em;
         }
         &--output{
-            @include unfocused;
+            color: $disabled-color-light-bg;
+            font-size: 2em;
         }
     }
 }
 
 .btn{
+    font-family: "Indie Flower", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     font-size: 1em;
     width: 3em;
     height: 3em;
