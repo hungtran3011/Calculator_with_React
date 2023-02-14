@@ -9,6 +9,16 @@ $disabled-color-light-bg: #d3d3d3;
 $font-color-dark-bg: #ffffff;
 $disabled-color-dark-bg: #d3d3d3;
 
+@mixin unfocused{
+    color: $disabled-color-light-bg;
+    font-size: 1em;
+}
+
+@mixin focused{
+    color: $font-color-light-bg;
+    font-size: 2em;
+}
+
 .main-app{
     display: flex;
     flex-flow: column nowrap;
@@ -36,38 +46,35 @@ $disabled-color-dark-bg: #d3d3d3;
     display: flex;
     flex-flow: column nowrap;
     justify-items: flex-start;
-    transition: font-size ease-in-out 10s;
 
     &__input{
         padding: 0;
         overflow-x: auto;
+        transition: font-size 0.1s ease-in-out;
     }
 
     &__output{
         padding: 0;
         overflow-x: auto;
+        transition: font-size 0.1s ease-in-out;
     }
 }
 
 .calculated{
     &__true{
         &--input{
-            color: $disabled-color-light-bg;
-            font-size: 2em;
+            @include unfocused
         }
         &--output{
-            color: $font-color-light-bg;
-            font-size: 4em;
+            @include focused
         }
     }
     &__false{
         &--input{
-            color: $font-color-light-bg-light-bg;
-            font-size: 4em;
+            @include focused
         }
         &--output{
-            color: $disabled-color-light-bg;
-            font-size: 2em;
+            @include unfocused
         }
     }
 }
