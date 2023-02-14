@@ -10,7 +10,6 @@ Use command line:
 ```
 git clone https://github.com/hungtran3011/Calculator_with_React.git
 cd Calculator_with_React
-
 npm install
 npm start
 ```
