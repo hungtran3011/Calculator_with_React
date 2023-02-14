@@ -9,14 +9,20 @@ $disabled-color-light-bg: #d3d3d3;
 $font-color-dark-bg: #ffffff;
 $disabled-color-dark-bg: #d3d3d3;
 
-@mixin unfocused{
+@mixin field-unfocused {
     color: $disabled-color-light-bg;
     font-size: 1em;
 }
 
-@mixin focused{
+@mixin field-focused {
     color: $font-color-light-bg;
     font-size: 2em;
+}
+
+@mixin field-design {
+    padding: 0;
+    overflow-x: auto;
+    transition: font-size 0.1s ease-in-out;
 }
 
 .main-app{
@@ -48,33 +54,29 @@ $disabled-color-dark-bg: #d3d3d3;
     justify-items: flex-start;
 
     &__input{
-        padding: 0;
-        overflow-x: auto;
-        transition: font-size 0.1s ease-in-out;
+        @include field-design;
     }
 
     &__output{
-        padding: 0;
-        overflow-x: auto;
-        transition: font-size 0.1s ease-in-out;
+        @include field-design;
     }
 }
 
 .calculated{
     &__true{
         &--input{
-            @include unfocused
+            @include field-unfocused
         }
         &--output{
-            @include focused
+            @include field-focused
         }
     }
     &__false{
         &--input{
-            @include focused
+            @include field-focused
         }
         &--output{
-            @include unfocused
+            @include field-unfocused
         }
     }
 }
