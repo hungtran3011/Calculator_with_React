@@ -135,15 +135,19 @@ export default function MainApp() {
 
 	const buttons = buttonsList.map((row) => {
 		const rowButtons = row.map((button) => {
-			return ["+", "-", "*", "/", "^", "%", "!", "(", ")"].includes(button) ? <InputButton text={button} inputType={"operator"} onClick={() => insertInputText(button)}/> :
+			return ["+", "-", "*", "/", "^", "%", "!", "(", ")"].includes(button) ?
+				<InputButton text={button} inputType={"operator"} onClick={() => insertInputText(button)}/> :
 				"M+" === button ? <InputButton text={button} inputType={"action"} onClick={() => accumulate(output, true)}/> :
-					"M-" === button ? <InputButton text={button} inputType={"action"} onClick={() => accumulate(output, false)}/> :
-						"MR" === button ? <InputButton text={button} inputType={"action"} onClick={memoryRecall}/> :
-							"MC" === button ? <InputButton text={button} inputType={"action"} onClick={memoryClear}/> :
-								"DEL" === button ? <InputButton text={button} inputType={"action"} onClick={deleteInput}/> :
-									"AC" === button ? <InputButton text={button} inputType={"action"} onClick={clearInput}/> :
-										"=" === button ? <InputButton text={button} inputType={"operator"} onClick={getResult}/> :
-											"" === button ? <div className={"btn btn__empty"}/> : <button onClick={() => insertInputText(button)} className={"btn btn__number"}>{button}</button>
+				"M-" === button ? <InputButton text={button} inputType={"action"} onClick={() => accumulate(output, false)}/> :
+				"MR" === button ? <InputButton text={button} inputType={"action"} onClick={memoryRecall}/> :
+				"MC" === button ? <InputButton text={button} inputType={"action"} onClick={memoryClear}/> :
+				"DEL" === button ? <InputButton text={button} inputType={"action"} onClick={deleteInput}/> :
+				"AC" === button ? <InputButton text={button} inputType={"action"} onClick={clearInput}/> :
+				"=" === button ? <InputButton text={button} inputType={"operator"} onClick={getResult}/> :
+				"" === button ? <div className={"btn btn__empty"}/> :
+				<button onClick={() => insertInputText(button)} className={"btn btn__number"}>
+					{button}
+				</button>
 
 		})
 		return (
