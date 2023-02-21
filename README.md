@@ -18,6 +18,6 @@ npm start
 Or directly download the ZIP file from this GitHub repo, unzip and start with `npm`
 
 Screenshots:
-![img.png](screenshots/screenshot2.png)
+![img.png](screenshots/Web%20capture_21-2-2023_221350_localhost.jpeg)
 
 (Favicon from <a href="https://commons.wikimedia.org/wiki/File:Calculator_icon.svg">`Wikimedia Commons`</a>)
