@@ -12,7 +12,6 @@
   border-radius: 1em;
   border: 2px solid black;
   background: #BBE4E9;
-  max-width: 270px;
 }
 
 .calculation-area {
@@ -20,21 +19,24 @@
   border-radius: 20px;
   text-align: right;
   width: 100%;
-  padding: 3px;
   border: 2px solid black;
   display: flex;
   flex-flow: column nowrap;
-  justify-items: flex-start;
+  justify-items: flex-end;
 }
 .calculation-area__input {
-  padding: 0;
+  padding: 5px;
   overflow-x: auto;
   transition: font-size 0.1s ease-in-out;
+  border: none;
+  white-space: nowrap;
 }
 .calculation-area__output {
-  padding: 0;
+  padding: 5px;
   overflow-x: auto;
   transition: font-size 0.1s ease-in-out;
+  border: none;
+  white-space: nowrap;
 }
 
 .calculated__true--input {
@@ -57,15 +59,19 @@
 .btn {
   font-family: "Indie Flower", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 1em;
+  aspect-ratio: 1/1;
   width: 3em;
   height: 3em;
-  border-radius: 4em;
+  border-radius: 50%;
+  border: 2px solid black;
   cursor: pointer;
 }
 .btn__area {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.5em;
+  max-width: 90vw;
+  overflow: auto;
 }
 .btn__area--row {
   display: flex;
@@ -85,6 +91,13 @@
 }
 .btn__number:hover {
   background: #416c96;
+}
+.btn__empty {
+  background: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
+  border: none;
+  cursor: default;
+  visibility: hidden;
 }
 .btn__operator {
   background: #79C2D0;

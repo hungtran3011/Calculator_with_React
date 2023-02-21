@@ -19,3 +19,5 @@ Or directly download the ZIP file from this GitHub repo, unzip and start with `n
 
 Screenshots:
 ![img.png](screenshots/screenshot2.png)
+
+(Favicon from <a href="https://commons.wikimedia.org/wiki/File:Calculator_icon.svg">`Wikimedia Commons`</a>)
